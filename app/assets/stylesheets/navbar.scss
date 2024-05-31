@@ -1,0 +1,11 @@
+.navbar-aside {
+  a {
+    text-decoration: none;
+    color: black;
+    div {
+      &:hover {
+        background-color: lightgray;
+      }
+    }
+  }
+}
