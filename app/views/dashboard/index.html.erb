@@ -1,0 +1,12 @@
+<%= link_to 'Log out', destroy_user_session_path, data: { "turbo-method": :delete }, class: 'btn btn-primary' %>
+  <%= form_for Tweet.new, url: tweets_path, html: {class: "nifty_form"} do |f| %>
+    <%= f.text_area :body, size: "60x12" %>
+    <%= f.submit "Create Tweet" %>
+  <% end %>
+
+  <h3>Tweet listing</h3>
+  <ul>
+    <% Tweet.find_each do |tweet| %>
+      <li><%= tweet.body %></li>
+    <% end %>
+  </ul>
