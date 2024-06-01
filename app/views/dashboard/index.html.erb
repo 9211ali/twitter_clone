@@ -1,70 +1,18 @@
 <div class="container">
   <div class="row">
     <aside class="col navbar-aside">
-      <%= link_to root_path, class: 'd-flex align-items-center fs-4 mb-4' do %>
-        <div class="px-4 py-2 rounded-circle">
-          <span class="me-4 position-relative" style="bottom: 3px"><%= image_tag "twitter.png", width: '32' %></span>
-        </div>
-      <% end %>
-      <%= link_to root_path, class: 'd-flex align-items-center fs-4 mb-4' do %>
-        <div class="px-4 py-2 rounded-pill">
-          <span class="me-4 position-relative" style="bottom: 3px"><%= image_tag "home.png", width: '32' %></span>Home
-        </div>
-      <% end %>
-      <%= link_to root_path, class: 'd-flex align-items-center fs-4 mb-4' do %>
-         <div class="px-4 py-2 rounded-pill">
-            <span class="me-4 position-relative" style="bottom: 3px"><%= image_tag "bell.png", width: '32' %></span>Notifications
-          </div>
-      <% end %>
-       <%= link_to root_path, class: 'd-flex align-items-center fs-4 mb-4' do %>
-        <div class="px-4 py-2 rounded-pill">
-        <span class="me-4 position-relative" style="bottom: 3px"><%= image_tag "email.png", width: '32' %></span>Messages
-         </div>
-      <% end %>
-      <%= link_to root_path, class: 'd-flex align-items-center fs-4 mb-4' do %>
-       <div class="px-4 py-2 rounded-pill">
-        <span class="me-4 position-relative" style="bottom: 3px"><%= image_tag "hashtag.png", width: '32' %></span>Explore
-         </div>
-      <% end %>
-      <%= link_to root_path, class: 'd-flex align-items-center fs-4 mb-4' do %>
-       <div class="px-4 py-2 rounded-pill">
-        <span class="me-4 position-relative" style="bottom: 3px"><%= image_tag "bookmark-white.png", width: '32' %></span>Bookmarks
-         </div>
-      <% end %>
-      <%= link_to root_path, class: 'd-flex align-items-center fs-4 mb-4' do %>
-       <div class="px-4 py-2 rounded-pill">
-        <span class="me-4 position-relative" style="bottom: 3px"><%= image_tag "user.png", width: '32' %></span>Profile
-         </div>
-      <% end %>
-      <%= link_to root_path, class: 'd-flex align-items-center fs-4 mb-4' do %>
-       <div class="px-4 py-2 rounded-pill">
-        <span class="me-4 position-relative" style="bottom: 3px"><%= image_tag "more.png", width: '32' %></span>More
-         </div>
-      <% end %>
-      <div class="d-flex align-items-center fs-4 mb-4">
-        <%= button_tag "Tweet", class: 'btn btn-primary btn-lg rounded-pill' %>
-      </div>
-      <%= link_to 'Log out', destroy_user_session_path, data: { "turbo-method": :delete }, class: 'btn btn-primary' %>
+      <%= render 'shared/navbar' %>
     </aside>
-    <div class="col">
-      <%= form_for Tweet.new, url: tweets_path do |f| %>
-        <%= f.text_field :body, class: 'form-control' %>
-        <%= f.submit "Tweet", class: "btn btn-primary" %>
+    <div class="col-7">
+      <%= link_to root_path, class: 'text-black fs-4 text-decoration-none fw-semibold mb-4' do %>
+        <div class="px-4 py-2 rounded-pill">
+          <span class="me-4 position-relative" style="bottom: 3px">Home
+        </div>
       <% end %>
-      <ul>
-        <% Tweet.find_each do |tweet| %>
-          <li><%= tweet.body %></li>
-        <% end %>
-      </ul>
+     <%= render 'shared/tweet_form' %>
+     <%= render Tweet.order(created_at: :desc) %>
     </div>
     <div class="col">
     </div>
   </div>
 </div>
-
-
-<div class="px-4 py-2 rounded-pill"></div>
-        <div class="px-4 py-2 rounded-pill"></div>
-        <div class="px-4 py-2 rounded-pill"></div>
-        <div class="px-4 py-2 rounded-pill"></div>
-        <div class="px-4 py-2 rounded-pill"></div>
