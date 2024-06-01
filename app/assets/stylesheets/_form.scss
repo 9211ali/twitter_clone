@@ -1,0 +1,9 @@
+.tweet-input {
+  border: none;
+  font-size: 1.4rem;
+  &:focus {
+    border-color: inherit;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}
