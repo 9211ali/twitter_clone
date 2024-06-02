@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   before_save :set_name, if: -> { username.present? && name.blank? }
 
+  has_one_attached :avatar
+
   def set_name
     name = username.humanize
   end

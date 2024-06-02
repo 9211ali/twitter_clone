@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   resources :tweets, only: [:new, :create]
 
   get :dashboard, to: 'dashboard#index'
+
+  get :set_profile, to: 'users#new'
+  put :update_profile, to: 'users#update_profile'
 end
