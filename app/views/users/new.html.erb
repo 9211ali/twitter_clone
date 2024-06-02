@@ -1,0 +1,17 @@
+<div class="container py-5" style="max-width: 540px">
+  <%= form_with model: current_user, url: update_profile_path, method: :put, data: {turbo: false} do |f| %>
+    <div class="mb-3">
+      <%= f.label :username, class: 'form-label' %>
+      <%= f.text_field :username, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :name, class: 'form-label' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :avatar, class: 'form-label' %>
+      <%= f.file_field :avatar, class: 'form-control' %>
+    </div>
+    <%= f.submit "Update Profile", class: "btn btn-primary rounded-pill" %>
+  <% end %>
+</div>
